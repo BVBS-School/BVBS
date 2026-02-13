@@ -55,7 +55,7 @@ export default function Header() {
                           href="/about#vision"
                           className="block text-base py-2 px-5 xl:text-lg text-[#1E1E1E] hover:text-[#EE834E] tracking-[-0.04em] font-medium"
                         >
-                          Vision & Missionn
+                          Vision & Mission
                         </Link>
                       </li>
                       <li>
