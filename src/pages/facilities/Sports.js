@@ -61,6 +61,7 @@ export default function Sports() {
                 <li>Chess</li>
                 <li>Kho-Kho</li>
                 <li>Kabaddi</li>
+                <li>Handball</li>
               </ul>
             </div>
           </div>
