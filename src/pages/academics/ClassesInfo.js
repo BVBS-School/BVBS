@@ -40,7 +40,7 @@ export default function ClassesInfo() {
     },
     {
       title: "4. Senior Secondary (Grade XI - Grade XII)  ",
-      Subtitle: "Learners Aged: 14 - 18 years",
+      Subtitle: "Learners Aged: 15 - 18 years",
       content: `At Bal Vishwa Bharti School, our Senior Secondary section goes beyond academics by offering a diverse range of co-curricular and extra-curricular activities that play a crucial role in shaping our students into well-rounded, confident individuals. Students can engage in a variety of pursuits, including sports, arts, dance, and debate, which not only foster creativity and self-expression but also promote teamwork, leadership, and time management skills. Additionally, our school encourages participation in cultural events, science fairs, and inter-school competitions, enabling students to gain exposure to diverse experiences and build their confidence.`,
       bgImages: [
         "/Academic/Senior1.JPG",
