@@ -9,7 +9,7 @@ export default function ClassesInfo() {
   const faqItems = [
     {
       title: "1. Pre Primary (Nursery, LKG, UKG)",
-      Subtitle: "Learners Aged: 6 - 11 years",
+      Subtitle: "Learners Aged: 3 - 6 years",
       content:
         "Learning is truly fun and exhilarating at Bal Vishwa Bharti School. We provide numerous opportunities for our young minds, aged 3 to 6, to explore, discover, and innovate. Our uniquely designed curriculum fosters a healthy, safe, and stimulating environment for each child's holistic development. Our enthusiastic learners acquire and develop a wide range of skills across all domains - physical and motor, language, cognitive, social, and emotional - enriching their imaginative, intellectual, and aesthetic abilities while enhancing their innate capabilities.",
       bgImages: [
@@ -30,7 +30,7 @@ export default function ClassesInfo() {
     },
     {
       title: "3. Secondary (Grade VI - Grade X)  ",
-      Subtitle: "Learners Aged: 6 - 11 years",
+      Subtitle: "Learners Aged: 11 - 15 years",
       content: `At BVBS, we focus on shaping students during their Secondary School years, a crucial period of intellectual and emotional growth. Following the RBSE curriculum, our 'graded learning' and 'project work' approaches cater to each student's strengths and interests, while educational excursions and co-curricular activities enhance the learning experience. Leadership and teamwork are emphasised through the Student Council. The holistic programme encourages critical thinking and includes Socially Useful Productive Work (SUPW) and community service, alongside career guidance through the Mindler platform.`,
       bgImages: [
         "/Academic/Secondary1.jpg",
@@ -40,7 +40,7 @@ export default function ClassesInfo() {
     },
     {
       title: "4. Senior Secondary (Grade XI - Grade XII)  ",
-      Subtitle: "Learners Aged: 6 - 11 years",
+      Subtitle: "Learners Aged: 14 - 18 years",
       content: `At Bal Vishwa Bharti School, our Senior Secondary section goes beyond academics by offering a diverse range of co-curricular and extra-curricular activities that play a crucial role in shaping our students into well-rounded, confident individuals. Students can engage in a variety of pursuits, including sports, arts, dance, and debate, which not only foster creativity and self-expression but also promote teamwork, leadership, and time management skills. Additionally, our school encourages participation in cultural events, science fairs, and inter-school competitions, enabling students to gain exposure to diverse experiences and build their confidence.`,
       bgImages: [
         "/Academic/Senior1.JPG",
