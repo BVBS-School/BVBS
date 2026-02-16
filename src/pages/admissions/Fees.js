@@ -144,7 +144,7 @@ export default function Fees() {
         <ol className="list-decimal font-normal Gotham-reguler list-inside text-[#666666] text-sm lg:text-base tracking-[-0.04em] italic">
           <li>Registration fee Rs. 1000/- only for new admission.</li>
           <li>
-            Renewal fee Rs. 300/- for students of X class passed from this
+            Renewal fee Rs. 1000/- for students of X class passed from this
             school.
           </li>
           <li>
