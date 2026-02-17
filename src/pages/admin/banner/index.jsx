@@ -96,7 +96,7 @@ function Banner() {
     formdata.append("description", "This is a simple image upload in Imgur");
 
     try {
-      const response = await fetch("https://api.imgur.com/3/image", {
+      const response = await fetch("https://api.imgur.com/3/upload", {
         method: "POST",
         headers: myHeaders,
         body: formdata,
