@@ -116,20 +116,69 @@ export default function Fees() {
             )}
           </table>
         </div>
-        <h2 className="tracking-[-0.04em] merriweather-font text-xl lg:text-2xl mb-2 md:mb-1 capitalize text-[#EE834E]">
-          Please note :
-        </h2>
-        <ol className="list-decimal font-normal Gotham-reguler list-inside text-[#666666] text-sm lg:text-base tracking-[-0.04em] italic">
-           <li>Registration fee Rs. 1000/- only for new admission.</li>
-          <li>
-            Renewal fee Rs. 1000/- for students of X class passed from this
-            school.
-          </li>
-          <li>
-            Conveyance Charges - Only for the students availing conveyance
-            facility.
-          </li>
-        </ol>
+       <div className="space-y-6 text-[#666666] text-sm lg:text-base">
+
+  <p><b>Note :</b></p>
+  <p>1. Admission form fee Rs. 500/- only for new admission.</p>
+  <p>2. Admission fee for new student one time only.</p>
+
+  {/* Admission Fee Table */}
+  <table className="border border-gray-400 w-full text-center">
+    <thead>
+      <tr className="bg-gray-100">
+        <th className="border p-2">Class</th>
+        <th className="border p-2">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td className="border p-2">Nursery to U.K.G.</td><td className="border p-2">1000</td></tr>
+      <tr><td className="border p-2">I to V</td><td className="border p-2">1500</td></tr>
+      <tr><td className="border p-2">VI to VIII</td><td className="border p-2">2000</td></tr>
+      <tr><td className="border p-2">IX to XII</td><td className="border p-2">2500</td></tr>
+    </tbody>
+  </table>
+
+  <p>3. Renewal fee Rs. 1000/- for students of X class passed from this school.</p>
+  <p>4. Exam Fee -</p>
+
+  {/* Exam Fee Table */}
+  <table className="border border-gray-400 w-full text-center">
+    <thead>
+      <tr className="bg-gray-100">
+        <th className="border p-2">Class</th>
+        <th className="border p-2">October Amount</th>
+        <th className="border p-2">January Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td className="border p-2">Nursery to U.K.G.</td><td className="border p-2">150</td><td className="border p-2">100</td></tr>
+      <tr><td className="border p-2">I to V</td><td className="border p-2">300</td><td className="border p-2">200</td></tr>
+      <tr><td className="border p-2">VI to VIII</td><td className="border p-2">350</td><td className="border p-2">250</td></tr>
+      <tr><td className="border p-2">IX to XII</td><td className="border p-2">600</td><td className="border p-2">400</td></tr>
+    </tbody>
+  </table>
+
+  <p>5. Sport Fee in April -</p>
+
+  {/* Sport Fee Table */}
+  <table className="border border-gray-400 w-full text-center">
+    <thead>
+      <tr className="bg-gray-100">
+        <th className="border p-2">Class</th>
+        <th className="border p-2">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td className="border p-2">I to V</td><td className="border p-2">100</td></tr>
+      <tr><td className="border p-2">VI to XII</td><td className="border p-2">200</td></tr>
+    </tbody>
+  </table>
+
+  <p>6. Conveyance Charges - Only for the students availing conveyance facility.</p>
+  <p>7. A late fine of Rs. 10/- per day will be charged if the fee is not deposited by 10th of the quarter/month.</p>
+
+</div>
+
       </div>
     </div>
   );
