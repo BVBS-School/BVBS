@@ -142,7 +142,7 @@ function Banner() {
     const record = new FormData();
     record.append("heading", formdata?.heading);
     record.append("text", formdata?.text);
-    record.append("photo", imageDataPreview);
+    record.append("photo", imagedataPreview);
     const main = new Details();
     try {
       const res = await main.BannerAdd(record);
