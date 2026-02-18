@@ -1,6 +1,5 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
 import LoadingData from "../Component/Loading";
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
@@ -111,9 +110,9 @@ function Index() {
                                                             }
                                                         </td>
                                                         <td className={`capitalize px-3 py-4 text-[15px] font-medium tracking-[-0.03em] ${item?.payment_status === 'success' ? 'text-green-500' :
-                                                                item?.payment_status === 'failed' ? 'text-red-500' :
-                                                                    item?.payment_status === 'pending' ? 'text-yellow-500' :
-                                                                        'text-[#46494D]'
+                                                            item?.payment_status === 'failed' ? 'text-red-500' :
+                                                                item?.payment_status === 'pending' ? 'text-yellow-500' :
+                                                                    'text-[#46494D]'
                                                             }`}>
                                                             {item?.payment_status}
                                                         </td>

@@ -1,15 +1,14 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
-import SideBarAdmin from "../Component/SideBar";
-import React, { useState, useEffect } from "react";
-import Modal from "../Component/Modal";
-import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 import Loading from "../Component/Loading";
 import NoData from "../Component/NoData";
 import Image from "next/image";
 import AdminLayout from "@/layout/AdminLayout";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import SideBarAdmin from "../Component/SideBar";
+import Modal from "../Component/Modal";
 
 function Index() {
   const [isOpen, setIsOpen] = useState(false);
@@ -265,7 +264,7 @@ function Index() {
                     )}
                   </div>
                   <div className="flex justify-end">
-                  {error ? (
+                    {error ? (
                       <p className="mx-auto text-red-600 capitalize">
                         Error uploading image. Please try again.
                       </p>
@@ -273,11 +272,11 @@ function Index() {
                       <p className="mx-auto">Image Uploading in progress...</p>
                     ) : (
                       <button
-                      type="submit"
-                      className="text-white button-animation text-sm font-normal tracking-[-0.03em] py-2 px-4 border-0 min-w-[100px] rounded-md"
-                    >
-                      {loading ? "Saving..." : "Save"}
-                    </button>
+                        type="submit"
+                        className="text-white button-animation text-sm font-normal tracking-[-0.03em] py-2 px-4 border-0 min-w-[100px] rounded-md"
+                      >
+                        {loading ? "Saving..." : "Save"}
+                      </button>
                     )}
                   </div>
                 </div>

@@ -1,8 +1,8 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
 
-// import Nodata from "../Component/Nodata";
 import LoadingData from "../Component/Loading";
+import NoData from "../Component/NoData";
 
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";

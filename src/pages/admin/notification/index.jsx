@@ -58,7 +58,6 @@ function Index() {
                                     <LoadingData />
                                 ) : (
                                     listing?.length < 0 ? (
-                                        // <Nodata />
                                         <NoData />
                                     ) : (
                                         <table className="min-w-full">

@@ -1,15 +1,14 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
-import SideBarAdmin from "../Component/SideBar";
-import React, { useState, useEffect } from "react";
-import Modal from "../Component/Modal";
-import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 import Loading from "../Component/Loading";
 import NoData from "../Component/NoData";
 import Image from "next/image";
 import AdminLayout from "@/layout/AdminLayout";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import SideBarAdmin from "../Component/SideBar";
+import Modal from "../Component/Modal";
 
 function Index() {
   const [isOpen, setIsOpen] = useState(false);

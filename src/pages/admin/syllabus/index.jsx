@@ -1,6 +1,5 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
 import LoadingData from "../Component/Loading";
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
@@ -92,8 +91,8 @@ function Index() {
                         <div className="bg-white rounded-[20px] mb-[30px]">
                             <div className="py-3 py-4 lg:py-[23px] px-4 md:px-6 lg:px-10 flex flex-wrap justify-between items-center border-b border-black  border-opacity-10">
                                 <h3 className=" text-base lg:text-lg font-semibold text-[#1E1E1E] mb-3 sm:mb-0 tracking-[-0.03em]">Syllabus  </h3>
-                               <AddSyllabus getsyllabusdata={getsyllabusdata} />
-                             </div>
+                                <AddSyllabus getsyllabusdata={getsyllabusdata} />
+                            </div>
                             <div className="overflow-x-auto">
                                 {Loading ? (
                                     <LoadingData />
@@ -141,14 +140,14 @@ function Index() {
 
                                                         <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]  tracking-[-0.03em] space-x-2">
                                                             <div className="flex space-x-2 justify-center">
-                                                            <a
-                                                                href={item?.viewLink}
-                                                                target="_blank"
-                                                                className=" h-[30px] w-[30px] bg-[#46494D]  text-black  bg-opacity-10 hover:bg-opacity-30 rounded inline-flex items-center justify-center">
-                                                                <FaEye size={18} />
-                                                            </a>
-                                                            {/* <Delete id={item?._id} getsyllabusdata={getsyllabusdata} /> */}
-                                                                <AddSyllabus  item={item} getsyllabusdata={getsyllabusdata} />
+                                                                <a
+                                                                    href={item?.viewLink}
+                                                                    target="_blank"
+                                                                    className=" h-[30px] w-[30px] bg-[#46494D]  text-black  bg-opacity-10 hover:bg-opacity-30 rounded inline-flex items-center justify-center">
+                                                                    <FaEye size={18} />
+                                                                </a>
+                                                                {/* <Delete id={item?._id} getsyllabusdata={getsyllabusdata} /> */}
+                                                                <AddSyllabus item={item} getsyllabusdata={getsyllabusdata} />
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -162,7 +161,7 @@ function Index() {
                     </div>
                 </div>
             </div>
-           
+
         </AdminLayout>
     </>);
 }

@@ -1,6 +1,5 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
 import Modal from "../Component/Modal";
@@ -13,14 +12,14 @@ import AddResult from "./Addresult";
 
 function Index() {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
- 
+
   const [listing, setListing] = useState([]);
   const [loading, setLoading] = useState(false);
   const handleDeleteClose = () => {
     setIsDeleteOpen(false);
   };
 
- 
+
 
   const router = useRouter();
 
@@ -42,7 +41,7 @@ function Index() {
     resultgetData();
   }, []);
 
- 
+
 
   const [deltedata, setDelete] = useState("");
   const handleopen = (item) => {
@@ -88,7 +87,7 @@ function Index() {
                     Result
                   </h3>
                   <div className="flex items-center space-x-2">
-                   <AddResult />
+                    <AddResult />
                   </div>
                 </div>
                 <div className="overflow-x-auto">
@@ -182,7 +181,7 @@ function Index() {
                                   />
                                 </svg>
                               </button>
-                              <AddResult item={item} resultgetData={resultgetData}/>
+                              <AddResult item={item} resultgetData={resultgetData} />
                             </td>
                           </tr>
                         ))}
@@ -194,7 +193,7 @@ function Index() {
             </div>
           </div>
         </div>
-       
+
         {isDeleteOpen && (
           <Modal isOpen={isDeleteOpen} onClose={handleDeleteClose}>
             <div className="relative bg-white w-full rounded-[30px] lg:rounded-[40px] m-auto">

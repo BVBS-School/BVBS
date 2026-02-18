@@ -1,6 +1,5 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
 import Modal from "../Component/Modal";
