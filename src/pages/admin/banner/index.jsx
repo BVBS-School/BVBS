@@ -87,7 +87,7 @@ function Banner() {
 
   const uploadImage = async (file) => {
     setImageUploading(true);
-    const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f669af30b";
+    const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f6609af30b";
 
     const formData = new FormData();
     formData.append("image", file);
