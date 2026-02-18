@@ -78,6 +78,7 @@ function Banner() {
       }
     }
     if (file) {
+      setError(false); // Clear previous errors immediately
       setImageUploading(true);
       setSelectedImage(file);
       setImagePreview(URL.createObjectURL(file));
@@ -86,54 +87,20 @@ function Banner() {
   };
 
   const uploadImage = async (file) => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
+    // MOCK UPLOAD for local dev
+    console.log("MOCK: Simulating Imgur upload for file:", file.name);
+    setImageUploading(true);
 
-    const formdata = new FormData();
-    formdata.append("image", file);
-    formdata.append("type", "image");
-    formdata.append("title", "Simple upload");
-    formdata.append("description", "This is a simple image upload in Imgur");
-
-    try {
-      const response = await fetch("https://api.imgur.com/3/upload", {
-        method: "POST",
-        headers: myHeaders,
-        body: formdata,
-        redirect: "follow",
-      });
-      if (!response.ok) {
-        console.log("Error in ok line");
-        setImageUploading(false);
-        setError(true);
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      //   console.log("response?.data",response);
-      //   if (response?.data?.success !== true) {
-      //     console.log("Error in success line");
-      //     setImageUploading(false);
-      //     setError(true);
-      //     throw new Error(`HTTP error! Status: ${response.status}`);
-      // }
-      const data = await response.json();
-      console.log("Image uploaded successfully:", data);
-      if (data?.data?.link) {
-        setImageDataPreview(data.data.link);
-        if (data?.data?.link) {
-          setImageDataPreview(data.data.link);
-          setFormdata((prevData) => ({
-            ...prevData,
-            photo: data.data.link,
-          }));
-        }
-        setImageUploading(false);
-        setError(false);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setImageUploading(false);
-      setError(true);
-    }
+    // Instantaneous mock link
+    const mockLink = URL.createObjectURL(file);
+    setImageDataPreview(mockLink);
+    setFormdata((prevData) => ({
+      ...prevData,
+      photo: mockLink,
+    }));
+    setImageUploading(false);
+    setError(false);
+    toast.success("MOCK: Image 'uploaded' successfully (Local only)");
   };
 
   const handleSubmit = async (e) => {
@@ -177,7 +144,10 @@ function Banner() {
                     Banner{" "}
                   </h3>
                   <button
-                    onClick={() => setIsOpen(true)}
+                    onClick={() => {
+                      setError(false);
+                      setIsOpen(true);
+                    }}
                     className="button-animation rounded text-white font-normal tracking-[-0.04em] text-sm font-normal py-2 px-3 xl:px-3.5  outline-none focus:outline-none ease-linear transition-all duration-150"
                   >
                     Add New Banner
