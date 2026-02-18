@@ -87,7 +87,7 @@ function Banner() {
 
   const uploadImage = async (file) => {
     setImageUploading(true);
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "delday2pi";
     const uploadPreset = "bvbs_unsigned";
 
     const formData = new FormData();
