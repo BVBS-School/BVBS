@@ -91,15 +91,25 @@ function Banner() {
 
     const formdata = new FormData();
     formdata.append("image", file);
+    formdata.append("type", "image");
+    formdata.append("title", "Banner Upload");
+    formdata.append("description", "Banner image for BVBS School");
 
     try {
-      const response = await fetch("https://api.imgur.com/3/image", {
+      const response = await fetch("https://api.imgur.com/3/upload", {
         method: "POST",
         headers: myHeaders,
         body: formdata,
+        redirect: "follow",
       });
 
       const data = await response.json();
+
+      if (!response.ok) {
+        setImageUploading(false);
+        setError(data?.data?.error || `Upload failed with status: ${response.status}`);
+        return;
+      }
 
       if (data?.data?.link) {
         setImageDataPreview(data.data.link);
@@ -109,11 +119,14 @@ function Banner() {
         }));
         setImageUploading(false);
         setError(false);
+      } else {
+        setImageUploading(false);
+        setError("Failed to get image link from Imgur.");
       }
     } catch (error) {
       console.error(error);
       setImageUploading(false);
-      setError(true);
+      setError("Network error or invalid response from Imgur.");
     }
   };
 
@@ -267,8 +280,8 @@ function Banner() {
                   {/* Submit Button */}
                   <div className="flex justify-end pt-3 px-6 lg:px-10 ">
                     {error ? (
-                      <p className="mx-auto text-red-600 capitalize">
-                        Error uploading image. Please try again.
+                      <p className="mx-auto text-red-600 capitalize text-center px-4">
+                        {error}
                       </p>
                     ) : imageUploading ? (
                       <p className="mx-auto">Image Uploading in progress...</p>
