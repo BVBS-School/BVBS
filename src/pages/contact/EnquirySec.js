@@ -56,14 +56,16 @@ function EnquirySec() {
     <div className="bg-white pb-[50px] md:pb-[70px] lg:pb-[100px]">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
         <div className="flex flex-wrap  -mx-3 grid-cols-4">
-          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0">
+          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0 relative" style={{ minHeight: '500px' }}>
             <Image
               blurDataURL={`${InquiryformBanner}?q=1`}
               placeholder="blur"
-              className="w-full h-full lg:h-[833px]"
+              className="w-full h-full object-cover"
               src={InquiryformBanner}
               alt="img"
               loading="lazy"
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
           </div>
           <div className="w-full lg:w-6/12 px-3">
