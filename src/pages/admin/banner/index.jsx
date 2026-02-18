@@ -1,6 +1,6 @@
 import Details from "@/pages/api/admin/Details";
 import Header from "../Component/Header";
-// import Nodata from "../Component/Nodata";
+import Nodata from "../Component/Nodata";
 import LoadingData from "../Component/Loading";
 import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
@@ -87,20 +87,35 @@ function Banner() {
   };
 
   const uploadImage = async (file) => {
-    // MOCK UPLOAD for local dev
-    console.log("MOCK: Simulating Imgur upload for file:", file.name);
-    setImageUploading(true);
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
 
-    // Instantaneous mock link
-    const mockLink = URL.createObjectURL(file);
-    setImageDataPreview(mockLink);
-    setFormdata((prevData) => ({
-      ...prevData,
-      photo: mockLink,
-    }));
-    setImageUploading(false);
-    setError(false);
-    toast.success("MOCK: Image 'uploaded' successfully (Local only)");
+    const formdata = new FormData();
+    formdata.append("image", file);
+
+    try {
+      const response = await fetch("https://api.imgur.com/3/image", {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+      });
+
+      const data = await response.json();
+
+      if (data?.data?.link) {
+        setImageDataPreview(data.data.link);
+        setFormdata((prev) => ({
+          ...prev,
+          photo: data.data.link,
+        }));
+        setImageUploading(false);
+        setError(false);
+      }
+    } catch (error) {
+      console.error(error);
+      setImageUploading(false);
+      setError(true);
+    }
   };
 
   const handleSubmit = async (e) => {
