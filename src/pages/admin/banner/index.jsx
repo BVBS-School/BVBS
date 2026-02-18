@@ -87,42 +87,50 @@ function Banner() {
 
   const uploadImage = async (file) => {
     setImageUploading(true);
-    const formdata = new FormData();
-    formdata.append("image", file);
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+    const uploadPreset = "ml_default"; // Cloudinary default unsigned preset
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
+    formData.append("folder", "bvbs-banners");
 
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_ADMIN_BASE_URL || "http://localhost:3001";
-      const response = await fetch(`${baseUrl}/home/banner/upload`, {
-        method: "POST",
-        body: formdata,
-      });
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
-      if (!response.ok) {
+      if (!response.ok || data.error) {
         setImageUploading(false);
-        setError(data?.message || `Upload failed with status: ${response.status}`);
+        setError(data?.error?.message || "Upload failed. Please try again.");
         return;
       }
 
-      if (data?.url) {
-        setImageDataPreview(data.url);
+      if (data?.secure_url) {
+        setImageDataPreview(data.secure_url);
         setFormdata((prev) => ({
           ...prev,
-          photo: data.url,
+          photo: data.secure_url,
         }));
         setImageUploading(false);
         setError(false);
       } else {
         setImageUploading(false);
-        setError("Failed to get image link from server.");
+        setError("Failed to get image link from Cloudinary.");
       }
     } catch (error) {
       console.error(error);
       setImageUploading(false);
-      setError("Network error or invalid response from server.");
+      setError("Network Error Or Invalid Response From Server.");
     }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
