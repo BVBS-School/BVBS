@@ -88,7 +88,7 @@ function Banner() {
   const uploadImage = async (file) => {
     setImageUploading(true);
     const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-    const uploadPreset = "ml_default"; // Cloudinary default unsigned preset
+    const uploadPreset = "bvbs_unsigned";
 
     const formData = new FormData();
     formData.append("file", file);
