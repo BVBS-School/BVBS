@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Slider() {
   const [listing, setLisitng] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const getbanner = () => {
     setLoading(true);
     const main = new Details();
@@ -29,10 +29,10 @@ export default function Slider() {
         setLoading(false);
         setLisitng([]);
         console.log("error", err);
-        // setCount(count + 1);
-        // if (count <= 2) {
-        //   getbanner();
-        // }
+        if (count < 3) {
+          setCount(count + 1);
+          getbanner();
+        }
       });
   };
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL =  process.env.NEXT_PUBLIC_RENDER_BASE_URL;
+const API_URL = process.env.NEXT_PUBLIC_RENDER_BASE_URL;
 
 
 function getToken() {
@@ -16,8 +16,7 @@ function getToken() {
 let RenderApi = axios.create({
   baseURL: API_URL,
   headers: {
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Accept': 'application/json'
   }
 });
 

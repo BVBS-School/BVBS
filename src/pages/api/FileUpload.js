@@ -1,12 +1,11 @@
 import axios from 'axios';
-const API_URL =  'https://api.imgur.com/3/image';
+const API_URL = 'https://api.imgur.com/3/image';
 
 let FileUpload = axios.create({
   baseURL: API_URL,
   headers: {
     'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    "Authorization": 'Client-ID fa9cff918a9554a', 
+    "Authorization": 'Client-ID fa9cff918a9554a',
   }
 });
 

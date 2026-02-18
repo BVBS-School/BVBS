@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { formatMultiPrice } from "@/hooks/ValueData";
-import {clearCart, removeItem } from "@/redux/cartSlice";
+import { clearCart, removeItem } from "@/redux/cartSlice";
 import Details from "../api/admin/Details";
 import { useRazorpay, RazorpayOrderOptions } from "react-razorpay";
 import { useRouter } from "next/router";
@@ -33,16 +33,18 @@ export default function Index() {
     aadhaarCard: null,
     panCard: null,
     emailAddress: "",
-    panNumber:"",
+    panNumber: "",
   });
 
   useEffect(() => {
-    try{
-      const renderserverstarting = axios.get("https://ghp-school-backend.onrender.com");
-    }
-    catch(error){
-      console.log("Failed to start render server")
-    }
+    const startRenderServer = async () => {
+      try {
+        await axios.get("https://ghp-school-backend.onrender.com");
+      } catch (error) {
+        console.error("Failed to start render server:", error.message);
+      }
+    };
+    startRenderServer();
   }, []);
 
   const handleUpload = async (event) => {
@@ -98,7 +100,7 @@ export default function Index() {
     totalPrice: item.price * item.quantity
   }));
   // console.log("itemsjson",items);
-  items=JSON.stringify(items);
+  items = JSON.stringify(items);
   // console.log("itemsstringify",items);
 
 
@@ -226,25 +228,24 @@ export default function Index() {
       const response = await main.donationUserAdd(data);
       if (response?.data?.status) {
         // toast.success(response.data.message);
-        console.log("Render api success",response.data.message)
+        console.log("Render api success", response.data.message)
       } else {
         // toast.error(response.data.message);
-        console.log("Render api error",response.data.message)
+        console.log("Render api error", response.data.message)
       }
     } catch (error) {
       // toast.error(error?.response?.data?.data?.message || "An error occurred");
-      console.log("Render api error",error?.response?.data?.data?.message)
+      console.log("Render api error", error?.response?.data?.data?.message)
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if(totalPrice===0)
-      {
-        toast.error("Your cart is empty!");
-        router.push("/contact#donation")
-      }
+    if (totalPrice === 0) {
+      toast.error("Your cart is empty!");
+      router.push("/contact#donation")
+    }
   }, []);
 
   return (
@@ -381,9 +382,9 @@ export default function Index() {
                       cartItemsRedux.map((item, index) => (
                         <tr key={index}>
                           <td className="text-[#1E1E1E] font-medium text-base py-3.5 pr-2 tracking-[-0.04em] border-b border-black border-opacity-10">
-                              <button className="ml-2 text-[#ff0000]" onClick={() => handleRemove(item.id)}>
-                                <FaRegTrashCan  size={14}/>
-                                </button>
+                            <button className="ml-2 text-[#ff0000]" onClick={() => handleRemove(item.id)}>
+                              <FaRegTrashCan size={14} />
+                            </button>
                           </td>
                           <td className="text-[#1E1E1E] font-medium text-base py-3.5 tracking-[-0.04em] border-b border-black border-opacity-10">
                             <div className="flex items-center ">
@@ -401,7 +402,7 @@ export default function Index() {
                               </div>
                               <div className="flex items-center w-[calc(100%-71px)] lg:w-[calc(100%-91px)] max-w-[179px] pl-2.5 tracking-[-0.04em] text-[#1E1E1E] font-medium merriweather-font font-normal text-base md:text-lg lg:text-xl">
                                 {item.name}
-                                
+
                               </div>
                             </div>
                           </td>
@@ -430,13 +431,13 @@ export default function Index() {
                 </table>
               </div>
               <div className="w-full lg:hidden mt-6">
-                    <button
-                      onClick={handleSubmit}
-                      className="button-animation  lg:w-[253px]  rounded px-8 lg:px-12 py-2 lg:py-3.5 text-white text-base lg:text-lg font-normal tracking-[-0.04em]"
-                    >
-                      Pay Now
-                    </button>
-                  </div>
+                <button
+                  onClick={handleSubmit}
+                  className="button-animation  lg:w-[253px]  rounded px-8 lg:px-12 py-2 lg:py-3.5 text-white text-base lg:text-lg font-normal tracking-[-0.04em]"
+                >
+                  Pay Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
