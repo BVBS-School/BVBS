@@ -1,0 +1,22 @@
+Cloudinary Account Kaise Banayein (Step by Step):
+
+1. Browser mein yeh URL kholein: https://cloudinary.com/users/register_free
+
+2. Form mein fill karein:
+   - First Name: Aapka naam
+   - Last Name: Aapka surname
+   - Email: Aapka email
+   - Password: Koi bhi strong password
+
+3. "Create Account" button dabayein.
+
+4. Email verify karein (inbox mein link aayega).
+
+5. Login karne ke baad Dashboard par jayein.
+
+6. Dashboard par ye 3 values dikhegi:
+   - Cloud Name (jaise: dxyz123)
+   - API Key (jaise: 123456789012345)
+   - API Secret (jaise: abcdefghijklmnop)
+
+7. Ye 3 values mujhe bata dein, main live server par configure kar dunga.

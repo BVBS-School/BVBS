@@ -1,0 +1,12 @@
+Cloudinary "Unknown API Key" error ka matlab:
+
+The `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` environment variable is either:
+1. Not yet loaded (Vercel deploy still in progress)
+2. Has wrong value
+
+From user's Cloudinary screenshot: Cloud Name = `delday2pi`
+
+The URL being called would be: `https://api.cloudinary.com/v1_1/undefined/image/upload`
+if env var is not loaded yet.
+
+Solution: Hardcode cloud name temporarily to test, or wait for Vercel redeploy.

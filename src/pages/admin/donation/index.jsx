@@ -332,13 +332,13 @@ function Index() {
                       <p className="mx-auto">Image Uploading in progress...</p>
                     ) : (
                       <div className="flex justify-start">
-                      <button
-                        type="submit"
-                        className="button-animation rounded text-white font-normal tracking-[-0.04em] text-sm font-normal py-2 px-4 outline-none focus:outline-none ease-linear transition-all duration-150"
-                      >
-                        {loadingSubmit ? "Submitting..." : "Submit"}
-                      </button>
-                    </div>
+                        <button
+                          type="submit"
+                          className="button-animation rounded text-white font-normal tracking-[-0.04em] text-sm font-normal py-2 px-4 outline-none focus:outline-none ease-linear transition-all duration-150"
+                        >
+                          {loadingSubmit ? "Submitting..." : "Submit"}
+                        </button>
+                      </div>
                     )}
                   </div>
                 </form>

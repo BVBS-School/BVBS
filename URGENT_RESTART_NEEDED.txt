@@ -1,0 +1,13 @@
+STOP AND RESTART THE SERVER.
+
+Refer to the error you sent: "MulterError: Unexpected field".
+This error happens because the code running on your server is 25 HOURS OLD.
+It does not have the fix I pushed an hour ago.
+
+You must do this MANUALLY in your terminal:
+1. Click on the terminal where `node src/index.js` is running.
+2. Press `Ctrl + C` to stop it.
+3. Type `node src/index.js` and press Enter to start it again.
+
+Only AFTER you do this, the error will disappear.
+I cannot do this for you because the server was started before I connected.

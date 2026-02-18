@@ -17,7 +17,7 @@ function Index() {
     const [imagePreview, setImagePreview] = useState(null);
     const [imagedataPreview, setImageDataPreview] = useState(null);
     const [imageUploading, setImageUploading] = useState(false);
-  const [error, setError] = useState(false);
+    const [error, setError] = useState(false);
     const [listing, setListing] = useState([]);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -31,10 +31,10 @@ function Index() {
         if (file) {
             const fileSizeInMB = file.size / (1024 * 1024);
             if (fileSizeInMB > 4) {
-              alert("File size exceeds 4 MB. Please upload a smaller image.");
-              return;
+                alert("File size exceeds 4 MB. Please upload a smaller image.");
+                return;
             }
-          }
+        }
         if (file) {
             setImageUploading(true);
             setSelectedImage(file);
@@ -45,35 +45,22 @@ function Index() {
 
 
     const uploadImage = async (file) => {
-        const myHeaders = new Headers();
-        myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
-
+        const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f6609af30b";
         const formdata = new FormData();
         formdata.append("image", file);
-        formdata.append("type", "image");
-        formdata.append("title", "Simple upload");
-        formdata.append("description", "This is a simple image upload in Imgur");
-
         try {
-            const response = await fetch("https://api.imgur.com/3/upload", {
-                method: "POST",
-                headers: myHeaders,
-                body: formdata,
-                redirect: "follow",
-            });
-            if (!response.ok) {
+            const response = await fetch(
+                `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
+                { method: "POST", body: formdata }
+            );
+            const data = await response.json();
+            if (!response.ok || !data.success) {
                 setImageUploading(false);
                 setError(true);
-                throw new Error(`HTTP error! Status: ${response.status}`);
-              }
-            //   if (!response?.data?.success) {
-            //     setImageUploading(false);
-            //     setError(true);
-            //     throw new Error(`HTTP error! Status: ${response.status}`);
-            //   }
-            const data = await response.json();
-            if (data?.data?.link) {
-                setImageDataPreview(data.data.link);
+                return;
+            }
+            if (data?.data?.url) {
+                setImageDataPreview(data.data.url);
                 setImageUploading(false);
                 setError(false);
             }
@@ -85,7 +72,7 @@ function Index() {
     };
 
 
-    
+
     const router = useRouter();
 
     const handlesenddata = (item) => {
@@ -258,20 +245,20 @@ function Index() {
                                             {imagePreview && <img src={imagePreview} alt="Preview" className="mt-2 w-48 h-48 object-cover text-center" />}
                                         </div>
                                         <div className="flex justify-end pt-3 px-6 lg:px-10 ">
-                                        {error ? (
-                      <p className="mx-auto text-red-600 capitalize">
-                        Error uploading image. Please try again.
-                      </p>
-                    ) : imageUploading ? (
-                      <p className="mx-auto">Image Uploading in progress...</p>
-                    ) : (
-                        <button type="submit"
-                        onClick={handleSubmit}
-                        className="w-full text-white bg-[#0367F7] hover:text-[#0367F7] hover:bg-white text-[17px] font-medium tracking-[-0.04em] h-11 lg:h-[54px] py-2.5 px-12 border border-[#0367F7] rounded-full outline-none focus:outline-none ease-linear transition-all duration-150">
-                        {/* {Loading ? "Processing.." : "fees"} */}
-                        Principal
-                    </button>
-                    )}
+                                            {error ? (
+                                                <p className="mx-auto text-red-600 capitalize">
+                                                    Error uploading image. Please try again.
+                                                </p>
+                                            ) : imageUploading ? (
+                                                <p className="mx-auto">Image Uploading in progress...</p>
+                                            ) : (
+                                                <button type="submit"
+                                                    onClick={handleSubmit}
+                                                    className="w-full text-white bg-[#0367F7] hover:text-[#0367F7] hover:bg-white text-[17px] font-medium tracking-[-0.04em] h-11 lg:h-[54px] py-2.5 px-12 border border-[#0367F7] rounded-full outline-none focus:outline-none ease-linear transition-all duration-150">
+                                                    {/* {Loading ? "Processing.." : "fees"} */}
+                                                    Principal
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,7 @@
+Cloudinary credentials found from screenshot:
+
+Cloud Name: delday2pi
+API Key: 199518474798722
+API Secret: (partially visible - 27E5IwvTxb65FSPhvbMRvJgnb9s)
+
+These need to be configured on the live server.

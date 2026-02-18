@@ -106,7 +106,7 @@ function Index() {
     try {
       const main = new Details();
       const record = new FormData();
-    record.append("id", item?._id);      
+      record.append("id", item?._id);
       const response = await main.galleryDelete(record);
       if (response?.data?.status) {
         toast.success(response.data.message);
@@ -122,47 +122,24 @@ function Index() {
   };
 
   const uploadImage = async (file) => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
-
+    const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f6609af30b";
     const formdata = new FormData();
-    formdata.append("image", file, "GHJQTpX.jpeg");
-    formdata.append("type", "image");
-    formdata.append("title", "Simple upload");
-    formdata.append("description", "This is a simple image upload in Imgur");
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: formdata,
-      redirect: "follow",
-    };
+    formdata.append("image", file);
     try {
       const response = await fetch(
-        "https://api.imgur.com/3/upload",
-        requestOptions
+        `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
+        { method: "POST", body: formdata }
       );
-      if (!response.ok) {
+      const data = await response.json();
+      if (!response.ok || !data.success) {
         setImageUploading(false);
         setError(true);
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        return;
       }
-      // if (!response?.data?.success) {
-      //   setImageUploading(false);
-      //   setError(true);
-      //   throw new Error(`HTTP error! Status: ${response.status}`);
-      // }
-      const data = await response.json();
-      if (data?.data?.link) {
-        setUrl(data.data.link);
+      if (data?.data?.url) {
+        setUrl(data.data.url);
         setImageUploading(false);
         setError(false);
-      } else {
-        setUrl("DUMMY LINK");
-        setImageUploading(false);
-      setError(true);
-        // alert("Failed to upload image.")
-        // return false
       }
     } catch (error) {
       console.error("Error:", error);
@@ -234,7 +211,7 @@ function Index() {
                         <div
                           key={index}
                           className="relative w-full overflow-hidden cursor-pointer"
-                          // onClick={() => handleGalleryClick(item?.caption)}
+                        // onClick={() => handleGalleryClick(item?.caption)}
                         >
                           <Image
                             blurDataURL={`${item?.url || careerbg}?q=1`}
@@ -253,7 +230,7 @@ function Index() {
                             className="absolute top-0 right-0 z-10 cursor-pointer bg-white"
                             onClick={() => handleDelete(item)}
                           >
-                            <FaRegTrashCan size={22} color="#FF0000"/>
+                            <FaRegTrashCan size={22} color="#FF0000" />
                           </div>
                         </div>
                       ))}
@@ -419,20 +396,20 @@ function Index() {
                       />
                     </div>
                     <div className="flex justify-center">
-                    {error ? (
-                      <p className="mx-auto text-red-600 capitalize">
-                        Error uploading image. Please try again.
-                      </p>
-                    ) : imageUploading ? (
-                      <p className="mx-auto">Image Uploading in progress...</p>
-                    ) : (
-                      <button
-                      onClick={handleSubmit}
-                      className="text-white button-animation text-sm font-normal rounded-xl w-full tracking-[-0.03em] p-3 border-0 min-w-[100px] rounded-md"
-                    >
-                      {loading ? "Saving..." : "Save"}
-                    </button>
-                    )}
+                      {error ? (
+                        <p className="mx-auto text-red-600 capitalize">
+                          Error uploading image. Please try again.
+                        </p>
+                      ) : imageUploading ? (
+                        <p className="mx-auto">Image Uploading in progress...</p>
+                      ) : (
+                        <button
+                          onClick={handleSubmit}
+                          className="text-white button-animation text-sm font-normal rounded-xl w-full tracking-[-0.03em] p-3 border-0 min-w-[100px] rounded-md"
+                        >
+                          {loading ? "Saving..." : "Save"}
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

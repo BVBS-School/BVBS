@@ -1,0 +1,16 @@
+Asli Problem Samajh Aaya:
+
+1. Live site `balvishwabharti.com` ek ALAG Linux server par chal rahi hai.
+   Error path: `/home/tenniskhelo/apps/balvishwabharti/`
+   
+2. Maine jo fix kiya woh local Windows machine par hai, live server par nahi.
+
+3. Local disk par images save karna live server par kaam nahi karega kyunki:
+   - Frontend (Vercel) us server ke files access nahi kar sakta.
+   - Server restart hone par files delete ho sakti hain.
+
+SOLUTION: Cloudinary use karna (free hai, reliable hai).
+Cloudinary ek cloud image hosting service hai.
+Images wahan save hongi aur URL milega jo hamesha accessible rahega.
+
+Main abhi implement kar raha hoon...

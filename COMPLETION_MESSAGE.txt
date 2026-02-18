@@ -1,0 +1,19 @@
+Koi baat nahi! SSH access nahi hai toh bhi koi problem nahi.
+
+**Aapka backend Vercel par deploy hai** (`ghp-school-backend.vercel.app`).
+Vercel par environment variables add karna bahut aasaan hai — koi SSH nahi chahiye.
+
+**Ye steps follow karein:**
+
+1. **vercel.com** par login karein (GitHub se login hoga).
+2. **`ghp-school-backend`** project kholein.
+3. **Settings** tab par jayein.
+4. **Environment Variables** section mein jayein.
+5. Ye 3 variables add karein:
+   - Name: `CLOUDINARY_CLOUD_NAME`  Value: `delday2pi`
+   - Name: `CLOUDINARY_API_KEY`     Value: `199518474798722`
+   - Name: `CLOUDINARY_API_SECRET`  Value: `27E5IwvTxb65FSPhvbMRvJgnb9s`
+6. **Save** karein.
+7. **Redeploy** karein (Deployments tab > Latest deployment > Redeploy).
+
+Kya aapke paas Vercel account ka access hai?
