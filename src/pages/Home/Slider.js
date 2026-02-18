@@ -9,32 +9,45 @@ export default function Slider() {
   const [listing, setLisitng] = useState([]);
   const [loading, setLoading] = useState(false);
   // const [count, setCount] = useState(0);
-  const getbanner = () => {
-    setLoading(true);
-    const main = new Details();
-    main
-      .gethomebanner()
-      .then((r) => {
-        setLoading(false);
-        setLisitng([
-          ...r?.data?.banners,
-          ...r?.data?.banners,
-          ...r?.data?.banners,
-          ...r?.data?.banners,
-          ...r?.data?.banners,
-          ...r?.data?.banners,
-        ]);
-      })
-      .catch((err) => {
-        setLoading(false);
-        setLisitng([]);
-        console.log("error", err);
-        // setCount(count + 1);
-        // if (count <= 2) {
-        //   getbanner();
-        // }
-      });
-  };
+ const getbanner = () => {
+  setLoading(true);
+  const main = new Details();
+
+  main
+  .then((r) => {
+  setLoading(false);
+
+  const apiBanners = r?.data?.banners || [];
+
+  const updatedBanners = [
+    ...apiBanners,
+    {
+      photo: "/Home/bvbs_resized_218x207.jpg",
+      heading: "Static Banner",
+    },
+  ];
+
+  setLisitng([
+    ...updatedBanners,
+    ...updatedBanners,
+    ...updatedBanners,
+  ]);
+})
+
+    .catch((err) => {
+      setLoading(false);
+      console.log("error", err);
+
+      // API fail ho to bhi static image dikhe
+      setLisitng([
+        {
+          photo: "/Home/bvbs_resized_218x207.jpg",
+          heading: "Static Banner",
+        },
+      ]);
+    });
+};
+
 
   const [Notification, setNotification] = useState([])
 
