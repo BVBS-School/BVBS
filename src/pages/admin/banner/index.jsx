@@ -86,47 +86,41 @@ function Banner() {
   };
 
   const uploadImage = async (file) => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
-
+    setImageUploading(true);
     const formdata = new FormData();
     formdata.append("image", file);
-    formdata.append("type", "image");
-    formdata.append("title", "Banner Upload");
-    formdata.append("description", "Banner image for BVBS School");
 
     try {
-      const response = await fetch("https://api.imgur.com/3/upload", {
+      const baseUrl = process.env.NEXT_PUBLIC_ADMIN_BASE_URL || "http://localhost:3001";
+      const response = await fetch(`${baseUrl}/home/banner/upload`, {
         method: "POST",
-        headers: myHeaders,
         body: formdata,
-        redirect: "follow",
       });
 
       const data = await response.json();
 
       if (!response.ok) {
         setImageUploading(false);
-        setError(data?.data?.error || `Upload failed with status: ${response.status}`);
+        setError(data?.message || `Upload failed with status: ${response.status}`);
         return;
       }
 
-      if (data?.data?.link) {
-        setImageDataPreview(data.data.link);
+      if (data?.url) {
+        setImageDataPreview(data.url);
         setFormdata((prev) => ({
           ...prev,
-          photo: data.data.link,
+          photo: data.url,
         }));
         setImageUploading(false);
         setError(false);
       } else {
         setImageUploading(false);
-        setError("Failed to get image link from Imgur.");
+        setError("Failed to get image link from server.");
       }
     } catch (error) {
       console.error(error);
       setImageUploading(false);
-      setError("Network error or invalid response from Imgur.");
+      setError("Network error or invalid response from server.");
     }
   };
 
