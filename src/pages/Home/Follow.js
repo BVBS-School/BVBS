@@ -9,17 +9,12 @@ import axios from "axios";
 export default function Follow() {
   const [posts, setPosts] = useState();
   useEffect(() => {
-    const refreshToken = async () => {
-      try {
-        await axios.get(
-          `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}`
-        );
-      } catch (error) {
-        console.error("Failed to refresh Instagram token:", error?.response?.data || error.message);
-      }
-    };
-    if (process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN) {
-      refreshToken();
+    try {
+      const tokenValidityIncrease = axios.get(
+        `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}`
+      );
+    } catch (error) {
+      console.log("Failed to start render server");
     }
   }, []);
   useEffect(() => {
