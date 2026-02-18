@@ -87,17 +87,14 @@ function Banner() {
 
   const uploadImage = async (file) => {
     setImageUploading(true);
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "delday2pi";
-    const uploadPreset = "bvbs_unsigned";
+    const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f669af30b";
 
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", uploadPreset);
-    formData.append("folder", "bvbs-banners");
+    formData.append("image", file);
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
         {
           method: "POST",
           body: formData,
@@ -106,28 +103,28 @@ function Banner() {
 
       const data = await response.json();
 
-      if (!response.ok || data.error) {
+      if (!response.ok || !data.success) {
         setImageUploading(false);
         setError(data?.error?.message || "Upload failed. Please try again.");
         return;
       }
 
-      if (data?.secure_url) {
-        setImageDataPreview(data.secure_url);
+      if (data?.data?.url) {
+        setImageDataPreview(data.data.url);
         setFormdata((prev) => ({
           ...prev,
-          photo: data.secure_url,
+          photo: data.data.url,
         }));
         setImageUploading(false);
         setError(false);
       } else {
         setImageUploading(false);
-        setError("Failed to get image link from Cloudinary.");
+        setError("Failed to get image link from ImgBB.");
       }
     } catch (error) {
       console.error(error);
       setImageUploading(false);
-      setError("Network Error Or Invalid Response From Server.");
+      setError("Network Error. Please try again.");
     }
   };
 
