@@ -28,28 +28,11 @@ export default function Slider() {
       .catch((err) => {
         setLoading(false);
         setLisitng([]);
+        console.log("error", err);
         setCount(count + 1);
         if (count <= 2) {
           getbanner();
         }
-      });
-  };
-
-  const [Notification, setNotification] = useState([])
-
-  const getNotificationdata = () => {
-    setLoading(true);
-    const main = new Details();
-    main.Notification()
-      .then((r) => {
-        console.log(r)
-        setLoading(false);
-        setNotification(r?.data?.Notification);
-      })
-      .catch((err) => {
-        setLoading(false);
-        setNotification([]);
-        console.log("error", err);
       });
   };
 
