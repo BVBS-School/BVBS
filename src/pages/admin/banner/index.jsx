@@ -85,56 +85,38 @@ function Banner() {
     }
   };
 
-  const uploadImage = async (file) => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
+const uploadImage = async (file) => {
+  const myHeaders = new Headers();
+  myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
 
-    const formdata = new FormData();
-    formdata.append("image", file);
-    formdata.append("type", "image");
-    formdata.append("title", "Simple upload");
-    formdata.append("description", "This is a simple image upload in Imgur");
+  const formdata = new FormData();
+  formdata.append("image", file);
 
-    try {
-      const response = await fetch("https://api.imgur.com/3/upload", {
-        method: "POST",
-        headers: myHeaders,
-        body: formdata,
-        redirect: "follow",
-      });
-      if (!response.ok) {
-        console.log("Error in ok line");
-        setImageUploading(false);
-        setError(true);
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      //   console.log("response?.data",response);
-      //   if (response?.data?.success !== true) {
-      //     console.log("Error in success line");
-      //     setImageUploading(false);
-      //     setError(true);
-      //     throw new Error(`HTTP error! Status: ${response.status}`);
-      // }
-      const data = await response.json();
-      console.log("Image uploaded successfully:", data);
-      if (data?.data?.link) {
-        setImageDataPreview(data.data.link);
-        if (data?.data?.link) {
-          setImageDataPreview(data.data.link);
-          setFormdata((prevData) => ({
-            ...prevData,
-            photo: data.data.link,
-          }));
-        }
-        setImageUploading(false);
-        setError(false);
-      }
-    } catch (error) {
-      console.error("Error:", error);
+  try {
+    const response = await fetch("https://api.imgur.com/3/image", {
+      method: "POST",
+      headers: myHeaders,
+      body: formdata,
+    });
+
+    const data = await response.json();
+
+    if (data?.data?.link) {
+      setImageDataPreview(data.data.link);
+      setFormdata((prev) => ({
+        ...prev,
+        photo: data.data.link,
+      }));
       setImageUploading(false);
-      setError(true);
+      setError(false);
     }
-  };
+  } catch (error) {
+    console.error(error);
+    setImageUploading(false);
+    setError(true);
+  }
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
