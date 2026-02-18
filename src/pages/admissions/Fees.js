@@ -118,7 +118,7 @@ export default function Fees() {
         </div>
         <div className="space-y-6 text-[#666666] text-sm lg:text-base">
 
-          <p><b>Note :</b></p>
+          <p><b>Note2  :</b></p>
           <p>1. Admission form fee Rs. 500/- only for new admission.</p>
           <p>2. Admission fee for new student one time only.</p>
 
