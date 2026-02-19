@@ -42,22 +42,35 @@ function ComingSchool() {
   };
 
   const uploadImage = async (file) => {
-    const IMGBB_API_KEY = "91cd4460b2a3bdf4a4f231f6609af30b";
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Client-ID fa9cff918a9554a");
+
     const formdata = new FormData();
     formdata.append("image", file);
+    formdata.append("type", "image");
+    formdata.append("title", "Simple upload");
+    formdata.append("description", "This is a simple image upload in Imgur");
+
     try {
-      const response = await fetch(
-        `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
-        { method: "POST", body: formdata }
-      );
-      const data = await response.json();
-      if (!response.ok || !data.success) {
+      const response = await fetch("https://api.imgur.com/3/upload", {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      });
+      if (!response.ok) {
         setImageUploading(false);
         setError(true);
-        return;
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      if (data?.data?.url) {
-        setImageDataPreview(data.data.url);
+      // if (!response?.data?.success) {
+      //   setImageUploading(false);
+      //   setError(true);
+      //   throw new Error(`HTTP error! Status: ${response.status}`);
+      // }
+      const data = await response.json();
+      if (data?.data?.link) {
+        setImageDataPreview(data.data.link);
         setImageUploading(false);
         setError(false);
       }
