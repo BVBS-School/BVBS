@@ -32,9 +32,9 @@ export default function Principal() {
     principle();
   }, []);
   return (
-    <div className="bg-white py-[50px] md:py-[70px] lg:py-[100px]">
+    <div className="bg-white py-[30px] md:py-[40px] lg:py-[50px]">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
-        <div className="bg-[#ECE1C5] pt-[40px] md:pt-[60px] lg:pt-[80px] pb-[24px] md:py-[44px] lg:pb-[40px] px-5 lg:px-10">
+        <div className="bg-[#ECE1C5] pt-[24px] md:pt-[32px] lg:pt-[40px] pb-[20px] md:py-[28px] lg:pb-[28px] px-5 lg:px-10">
           <h2 className="merriweather-font font-normal text-2xl md:text-3xl lg:text-4xl mb-6 lg:mb-[37px] text-[#1E1E1E] tracking-[-0.04em] text-center">
             Message from the Principal
           </h2>
