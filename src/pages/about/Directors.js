@@ -54,7 +54,7 @@ export default function Directors() {
   // ];
   return (
     <div
-      className="bg-white"
+      className="bg-white py-[50px] md:py-[70px] lg:py-[100px]"
       id="directors"
     >
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
@@ -62,7 +62,7 @@ export default function Directors() {
           Directors Desk
         </h2>
         {Loading ? (
-          <Loader/>
+          <Loader />
         ) : (
           <div className="mx-auto lg:px-4 pt-8 grid lg:grid-cols-2 gap-3.5 lg:gap-5">
             {listing &&
