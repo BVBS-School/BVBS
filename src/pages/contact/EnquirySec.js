@@ -55,13 +55,13 @@ function EnquirySec() {
   return (
     <div className="bg-white pb-[50px] md:pb-[70px] lg:pb-[100px]">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
-        <div className="flex flex-wrap  -mx-3 grid-cols-4">
-          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0" style={{ minHeight: '100%' }}>
+        <div className="flex flex-wrap items-stretch -mx-3 grid-cols-4">
+          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0" style={{ display: 'flex' }}>
             <img
-              className="w-full object-cover"
+              className="w-full"
               src={InquiryformBanner.src || InquiryformBanner}
               alt="img"
-              style={{ height: '100%', minHeight: '600px', objectFit: 'cover', objectPosition: 'center' }}
+              style={{ width: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
             />
           </div>
           <div className="w-full lg:w-6/12 px-3">
