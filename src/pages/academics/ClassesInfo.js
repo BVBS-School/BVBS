@@ -20,7 +20,7 @@ export default function ClassesInfo() {
     },
     {
       title: "2. Primary (Grade I - Grade V) ",
-      Subtitle: "Learners Aged 6 Years – Class I",
+      Subtitle: "Learners Aged 6  Years – Class I",
       content: `At BVBS, we believe that knowledge is actively constructed by the student, not passively absorbed from textbooks. In our primary classes, 'hands-on' learning is essential for developing lifelong competencies. Following the RBSE curriculum, we design activities that cater to children's interests—communication, inquiry, construction, and artistic expression. Aligned with our philosophy, "Let learning be a joy and teaching a pleasure," we enrich education through field trips, experiments, hobbies, and life skills, aiming to develop each child's potential and prepare them for a rapidly evolving world.`,
       bgImages: [
         "/Academic/primaryimg01.jpg",
