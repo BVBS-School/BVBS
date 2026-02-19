@@ -54,7 +54,7 @@ export default function Directors() {
   // ];
   return (
     <div
-      className="bg-white pb-[30px] md:pb-[40px] lg:pb-[50px]"
+      className="bg-white pb-[20px] md:pb-[28px] lg:pb-[36px]"
       id="directors"
     >
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
