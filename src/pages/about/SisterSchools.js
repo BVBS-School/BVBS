@@ -55,7 +55,7 @@ export default function SisterSchools() {
     principle();
   }, []);
   return (
-    <div className="bg-white py-[20px] md:py-[28px] lg:py-[36px]" id="sisterSchools">
+    <div className="bg-white py-[30px] md:py-[40px] lg:py-[50px]" id="sisterSchools">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
         <div
           className="bg-[#ECE1C5] pt-[24px] md:pt-[32px] lg:pt-[40px] pb-[20px] md:py-[28px] lg:pb-[28px] px-5 lg:px-10">

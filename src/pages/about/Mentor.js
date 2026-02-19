@@ -4,7 +4,7 @@ import MentorImg from "../../../public/About/Mentor.png";
 
 export default function Mentor() {
   return (
-    <div className="bg-white py-[20px] md:py-[28px] lg:py-[36px]" id="mentor">
+    <div className="bg-white pb-[30px] md:pb-[40px] lg:pb-[50px]" id="mentor">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
         <h2 className="merriweather-font font-normal  text-2xl md:text-3xl lg:text-4xl mb-2 text-[#1E1E1E]  tracking-[-0.04em] mb-4 lg:mb-5 text-center ">
           Our Mentor

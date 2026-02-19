@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Vision() {
   return (
-    <div className="bg-white py-[20px] md:py-[28px] lg:py-[36px]" id="vision" >
+    <div className="bg-white py-[30px] md:py-[40px] lg:py-[50px]" id="vision" >
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 bg-[#EE843E] px-[30px] lg:px-[40px] py-10 md:py-16">
