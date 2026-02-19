@@ -56,12 +56,20 @@ function EnquirySec() {
     <div className="bg-white pb-[50px] md:pb-[70px] lg:pb-[100px]">
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
         <div className="flex flex-wrap items-stretch -mx-3 grid-cols-4">
-          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0" style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5' }}>
+          <div className="w-full lg:w-6/12 px-3 mb-6 lg:mb-0" style={{ position: 'relative', minHeight: '700px' }}>
             <img
-              className="w-full"
               src={InquiryformBanner.src || InquiryformBanner}
               alt="img"
-              style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+                display: 'block'
+              }}
             />
           </div>
           <div className="w-full lg:w-6/12 px-3">
