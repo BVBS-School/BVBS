@@ -4,6 +4,7 @@ import Loading from "../Component/Loading";
 import NoData from "../Component/NoData";
 import Image from "next/image";
 import AdminLayout from "@/layout/AdminLayout";
+import SideBarAdmin from "../Component/SideBar";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
