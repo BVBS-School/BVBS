@@ -6,7 +6,7 @@ import Loader from "@/Component/Loader";
 export default function Directors() {
   const [listing, setLisitng] = useState("");
   const [Loading, setLoading] = useState(false);
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const director = () => {
     setLoading(true);
     const main = new Details();
@@ -20,10 +20,10 @@ export default function Directors() {
         setLoading(false);
         setLisitng([]);
         console.log("error", err);
-        // setCount(count + 1);
-        // if (count <= 2) {
-        //   director();
-        // }
+        setCount(count + 1);
+        if (count <= 2) {
+          director();
+        }
       });
   };
 
@@ -54,7 +54,7 @@ export default function Directors() {
   // ];
   return (
     <div
-      className="bg-white py-[50px] md:py-[70px] lg:py-[100px]"
+      className="bg-white pb-[50px] md:pb-[70px] lg:pb-[100px]"
       id="directors"
     >
       <div className="container sm:container md:container lg:max-w-[1204px] px-4 mx-auto">
@@ -62,9 +62,9 @@ export default function Directors() {
           Directors Desk
         </h2>
         {Loading ? (
-          <Loader />
+          <Loader/>
         ) : (
-          <div className="mx-auto lg:px-4 pt-8 grid lg:grid-cols-2 gap-3.5 lg:gap-5">
+          <div className="mx-auto lg:px-4 py-8 grid lg:grid-cols-2 gap-3.5 lg:gap-5">
             {listing &&
               listing.map((profile, index) => (
                 <div
